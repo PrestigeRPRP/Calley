@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>To Calley</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./index.css">
+        <link rel="icon" href="./resource/shivi.jpeg">
+
+      
+</head>
+<body>
+    <div class="container">
+        <div class="wrap">
+            <a href="#" class="start"><img class="start" src="./resource/koala1.png" alt="🐨" tabindex="0"></a>
+            <div class="secret_message" 
+                 data-text="<p>To Calley</p>
+                             <p><strong>Just wanted to express my sincere gratitude for your support throughout my journey</strong></p>
+                             <p>to becoming a detective. Your guidance and encouragement were instrumental in my success</p>
+                             <p>Keep smiling :)</p>
+                             <div align='right'><strong>- By Kite</strong></div>">
+                I wonder if there's a secret message hidden here.
+            </div>
+            
+        </div>
+    </div>
+    
+    <audio id="background-music" src="blue.mp3" loop autoplay></audio>
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+          // Optional: If you want to control the volume or other properties
+          
+    </script>
+    <script>
+  var running = false;
+
+function typeWriter(text, n) {
+    if (n < text.length) {
+        $('.secret_message').html(text.substring(0, n + 1) + "<img class='heart' src='./resource/heart.png' alt='❤'>");
+        n++;
+        setTimeout(function () {
+            typeWriter(text, n);
+        }, 100);
+    } else {
+        running = false;
+    }
+}
+
+$('.start').click(function (e) {
+    e.stopPropagation();
+    if (running == false) {
+        var text = $('.secret_message').data('text');
+        running = true;
+        typeWriter(text, 0);
+    }
+});
+
+// Automatically start the typewriter effect after 5 seconds if not clicked
+setTimeout(function () {
+    if (!running) {
+        var text = $('.secret_message').data('text');
+        running = true;
+        typeWriter(text, 0);
+    }
+}, 5000); // 5000 milliseconds = 5 seconds
+    </script>
+
+<script src="./index.js"></script>
+</body>
+</html>
+
